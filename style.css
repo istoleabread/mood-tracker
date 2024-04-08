@@ -1,0 +1,266 @@
+@font-face {
+    font-family: Cotta;
+    src: url('Fonts/Cotta.otf');
+}
+
+@font-face {
+    font-family: Nagoda;
+    src: url('Fonts/Nagoda.otf');
+}
+
+@font-face {
+    font-family: Roxie;
+    src: url('Fonts/Roxie-rossa.otf');
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    font-family: Roxie;
+    color: white;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    /* To escape the navigation bar at the bottom, so div becomes scrollable */
+    background-color: #2b4162;
+    background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+    background-repeat: no-repeat;
+}
+
+header {
+    z-index: 2;
+    padding: 28px;
+}
+
+.dashboard {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 75vh;
+    overflow: hidden;
+    gap: 10px;
+    transition: .7s;
+}
+
+.quotes {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid;
+    border-radius: 9px;
+    width: 90%;
+    padding: 20px;
+    background-color: #12100e;
+
+    .refresh {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        cursor: pointer;
+    }
+
+    .quote {
+        font-size: 1.1rem;
+        text-align: left;
+        padding-bottom: 00px;
+        padding-right: 15px;
+    }
+
+    .author {
+        font-size: 0.9rem;
+        text-align: right;
+    }
+}
+
+.weather {
+    font-family: Cotta;
+    margin-top: 8px;
+    padding: 20px;
+    overflow: hidden;
+    border: 1px solid;
+    border-radius: 9px;
+    width: 90%;
+    line-height: 1.2;
+
+    .singleRow {
+        padding-top: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .weatherIcon {
+        font-size: 3.5rem;
+    }
+
+    .tempAndIcon {
+        padding-bottom: 10px;
+    }
+}
+
+.weather h2 {
+    white-space: nowrap;
+    padding-left: 100%;
+    display: inline-block;
+    animation: rightToLeft 7s linear infinite;
+    padding-bottom: 8px;
+}
+
+.weatherDesc {
+    text-align: left;
+    max-width: 50%;
+    word-break: break-word;
+
+}
+
+#weatherGraph {
+    padding: 10px 5px;
+    margin-top: 5px;
+    min-height: 300px;
+    flex-grow: 1;
+    width: 90%;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+.moodStatistics {
+    padding-top: 10px;
+    border: 1px solid salmon;
+    border-radius: 8px;
+    background-color: #2b4162;
+    background-image: linear-gradient(180deg, #2b4162 0%, #12100e 74%);
+    width: 90%;
+    min-height: 70vh;
+    position: fixed;
+    top: 50%;
+    left: 150%;
+    transform: translate(-50%, -50%);
+    transition: .8s;
+    display: flex;
+    z-index: 20;
+    max-width: 620px;
+
+    #statsGraph {
+        flex-grow: 1;
+        /* border: 1px solid; */
+    }
+}
+
+
+
+@keyframes rightToLeft {
+    0% {
+        transform: translate(0%, 0%);
+    }
+
+    100% {
+        transform: translate(-105%, 0%);
+    }
+}
+
+.navigation {
+    max-width: 800px;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 90px;
+    z-index: 100;
+
+    & i {
+        cursor: pointer;
+        font-size: 1.7rem;
+    }
+}
+
+.nav-wrapper {
+    border-radius: 10px 10px 0px 0px;
+    padding: 0px 15px;
+    background-color: #2c4361;
+    width: 100%;
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+
+    & :nth-child(2) {
+        color: #12100e;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        border: 1px solid white;
+        padding: 15px;
+        border-radius: 50%;
+        transition: .2s;
+        transform-origin: top left;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 110%;
+            height: 55%;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            top: 0;
+            right: -5%;
+            background-color: white;
+            filter: blur(6px);
+            z-index: -2;
+        }
+
+        &:hover {
+            scale: 1.05;
+        }
+    }
+
+    .nav-icon:not(:nth-child(2)):hover {
+        color: #cbe0ff;
+    }
+}
+
+
+
+
+
+.infoPopup {
+    width: 80%;
+    max-width: 350px;
+    height: 70px;
+    padding: 10px 15px;
+    word-wrap: break-word;
+    background-color: #182538;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid salmon;
+    border-radius: 10px;
+    position: fixed;
+    top: 25px;
+    right: -100%;
+    z-index: 3;
+    transition: .5s;
+}

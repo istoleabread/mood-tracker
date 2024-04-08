@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mood Tracker</title>
+    <meta name="description" content="Track your mood, feel unrelieved.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- HighCharts API for graph -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body>
+    <div class="infoPopup">Hi guys I'm a popup. Lets goooooooooooooooooo!!!</div>
+    <div class="wrapper">
+        <header>
+            <h1>Mood Tracker</h1>
+        </header>
+        <div class="dashboard">
+            <div class="quotes" title="I literally wrote these man I'm so happy (except the cinch one)">
+                <i class="fa-solid fa-rotate refresh"></i>
+                <div class="quote">"What."</div>
+                <div class="author">- Advik</div>
+            </div>
+            <div class="weather">
+                <div class="title">
+                    <h2 class="cityName" title="Area Name">Loading weather...</h2>
+                </div>
+                <div class="singleRow tempAndIcon">
+                    <h1 class="temperature" title="Current Temperature"> °C</h1>
+                    <i class="fa-solid fa-bread-slice weatherIcon" title="Weather Icon"></i>
+                </div>
+                <div class="singleRow">
+                    <p class="weatherType">Weather</p>
+                    <p class="cloudiness">Cloudiness: *%</p>
+                </div>
+                <div class="singleRow">
+                    <p class="weatherDesc">Description</p>
+                    <p class="windSpeed">Wind Speed: * m/s</p>
+                </div>
+            </div>
+            <div id="weatherGraph"></div>
+        </div>
+        <div class="moodStatistics">
+            <div id="statsGraph"></div>
+        </div>
+        <div class="calendar">
+            <div class="header-info">
+                <button type="button" id="prev"><i class="fa-solid fa-circle-left"></i></button>
+                <div class="monthYear">
+                    <p class="monthYear">Month, Year</p>
+                </div>
+                <button type="button" id="next"><i class="fa-solid fa-circle-right"></i></button>
+            </div>
+            <div class="days">
+                <div class="singleDay" title="Sunday">S</div>
+                <div class="singleDay" title="Monday">M</div>
+                <div class="singleDay" title="Tuesday">T</div>
+                <div class="singleDay" title="Wednesday">W</div>
+                <div class="singleDay" title="Thursday">T</div>
+                <div class="singleDay" title="Friday">F</div>
+                <div class="singleDay" title="Saturday">S</div>
+            </div>
+            <div class="dates"></div>
+        </div>
+        <div class="editMood">
+            <p id="howFeel">How you feeling on <span id="whatDay">today</span>?</p>
+            <div class="emojis">
+                <img src="emojis/happy.svg" alt="Happy" title="Happy" data-emoji-type="happy">
+                <img src="emojis/okayish.svg" alt="Okayish" title="Okayish" data-emoji-type="okayish">
+                <img src="emojis/neutral.svg" alt="Neutral" title="Neutral" data-emoji-type="neutral">
+                <img src="emojis/sad.svg" alt="Sad" title="Sad" data-emoji-type="sad">
+                <img src="emojis/crying.svg" alt="Crying" title="Crying!" data-emoji-type="crying">
+            </div>
+            <textarea id="comments" placeholder="Comments..."></textarea>
+            <div class="buttons">
+                <button type="button" value="true">Confirm</button>
+                <button type="button" value="false">Cancel</button>
+            </div>
+        </div>
+        <section class="navigation">
+            <div class="nav-wrapper">
+                <i class="fa-solid fa-house main nav-icon" title="Dashboard"></i>
+                <i class="fa-solid fa-calendar-plus addDate nav-icon" title="Calendar"></i>
+                <i class="fa-solid fa-chart-pie stats nav-icon" title="Mood Stats"></i>
+            </div>
+        </section>
+    </div>
+    <script src="quotes.js" defer></script>
+    <script src="calendar.js" defer></script>
+    <script src="reference.js"></script>
+    <script src="dateEdit.js"></script>
+    <script src="weather.js"></script>
+    <script src="graph.js"></script>
+    <script src="test.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
